@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.App {
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: #AA076B;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0d0c0d, #200d19);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0b070b, #d5ccd2);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.react-chatbot-kit-chat-container {
+    width: 600px;
+    height: 600px;
+    
+   
+    
+}
+.react-chatbot-kit-chat-header {
+    background-color: #15242a;
+    color: white;
+    font-size: 20px;
+    padding: 30px;
+  }
+.react-chatbot-kit-chat-bot-message {
+    margin-left: 10px;
+}
+
+.react-chatbot-kit-chat-bot-message {
+    background-color: #15242a;
+}
+
+.react-chatbot-kit-chat-bot-message-arrow {
+    border-right: 8px solid #15242a;
+}
+
+.react-chatbot-kit-chat-btn-send {
+    background-color: #15242a;
+}
+
+
+
+.react-chatbot-kit-chat-message-container {
+    background-color: white;
+    height: fill;
+    
+}
+
+.react-chatbot-kit-chat-input {
+    background-color: whitesmoke;
+}
+
+
+
+
+.slow-btn {
+    margin-left: 1rem;
+}
+
+.img-component {
+    margin-left: 3rem;
+    position: relative;
+}
+
+.img-container {
+    width: 185px;
+    height: 185px;
+    border: 2px solid #61045F;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-component a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    background-color: #61045F;
+    color: white;
+    text-decoration: none;
+    padding: .5rem 1rem;
+}
+
+.img-component a:hover {
+    background-color: #61045f5e;
+}
+
+/* external */
+
+  .getStarted{
+    background-color: white;
+    width: fit-content;
+    color: black;
+    justify-content: center;
+    font-weight: 1000;
+    font-size: 16px;
+    padding: 5px;
+   
+    place-items: center;
+    border-radius: 5px;
+  }
+  .getStarted:hover{
+   
+    border:2px solid #dd5d2a;
+    padding-right: 17px;
+    color: white;
+    translate: 3px;
+    background: #AA076B;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #d775d7, #11a3ab);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0b070b, #301bd1);
+  }
+  .avatar{
+    background-color: #15242a;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: grid;
+    text-align: center;
+    place-items: center;
+    justify-content: center;
+    margin-right: 10px;
+  }
+  .landlordbtn{
+    background-color: #15242a;
+    color: white;
+    padding: 5px;
+    place-items: center;
+    margin-right: 10px;
+    
+    width: 30px;
+    border-radius: 50px;
+    margin-bottom: 3px;
+  }
+  .landlordbtn:hover{
+    background-color: #14abe1;
+  }
+
+  .premisesContent{
+    margin-left: 60px;
+    color: white;
+    background-color: #15242a;
+    width:185px;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-top: -24px;
+    border-radius: 10px;
+    padding-left: 15px;
+  }
+  .fitButtons{
+    margin-left: 60px;
+    width: 185px;
+    text-align: center;
+  }
+  .noResults{
+    background-color: #dd5d2a;
+    color: white;
+    padding: 5px;
+    place-items: center;
+    width: fit-content;
+    border-radius: 5px;
+  }
+  .gStarted{
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 20px;
+  }
