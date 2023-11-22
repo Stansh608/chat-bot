@@ -40,7 +40,7 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
         }))
         const message= createChatBotMessage("Fill in the House Information.", {
             widget:"houseno",
-            delay:1000
+            
         })
                                        
         updateState(message, "houseno")
