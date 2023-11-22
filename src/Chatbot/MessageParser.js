@@ -30,7 +30,7 @@ const MessageParser = ({ children, actions }) => {
 
         //
         if (checker === "landlord") {
-            children.props.state.tenantname = message;
+            children.props.state.landlord.name = message;
 
             actions.afterLandLordName();
             

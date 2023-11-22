@@ -24,25 +24,31 @@ const config = {
         tenantname:"",
         tenantcompany:"",
         tenantdirector:"",
-        landname: {
+        landlord: {
             name: "",
             phone: "",
-            location: {
-                lockey:{
-                    name: "",
-                    vacant:{
-                        vacantkey:{
-                            house:"",
-                            price:"",
-                            size:"",
-                        }
-                    }
+            // location: {
+            //     lockey:{
+            //         name: "",
+            //         vacant:{
+            //             vacantkey:{
+            //                 house:"",
+            //                 price:"",
+            //                 size:"",
+            // //             }
+            //         }
 
-                }
+            //     }
                 
-            }
-        }
+            // }
+        
     },
+    house: {
+        name: ""
+
+    }
+
+},
     widgets: [
         {
             widgetName: "startBtn",
