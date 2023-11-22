@@ -1,14 +1,13 @@
 import { createChatBotMessage } from 'react-chatbot-kit';
 import Avatar from './components/Avatar';
 import StartBtn from './components/StartBtn';
-import StartSlow from './components/StartSlow';
 import data from './data';
 import DipslayImage from './components/DipslayImage';
 import PremisesLocation from './components/PremisesLocation';
 import HouseNumber from './components/HouseNumber';
 import PaymentMode from './components/PaymentMode';
 import Currency from './components/Currency';
-
+import Houseno from './components/Houseno';
 
 const config = {
     botName: "ABC Leasing Company AI Assistance",
@@ -21,33 +20,32 @@ const config = {
     state: {
         checker: null,
         data,
-        tenantname:"",
-        tenantcompany:"",
-        tenantdirector:"",
+        tenant: {
+            name:"",
+            company:"",
+            director:"",
+        },
         landlord: {
             name: "",
             phone: "",
-            // location: {
-            //     lockey:{
-            //         name: "",
-            //         vacant:{
-            //             vacantkey:{
-            //                 house:"",
-            //                 price:"",
-            //                 size:"",
-            // //             }
-            //         }
+            company:"",       
+        },
+        house: {
+            name: "",
+            location:"",
+            size: "",
+            floor:"",
+            room:"",
+            price:"",           
 
-            //     }
-                
-            // }
+        },
+
+        leaseperiod: "",
+        paymentmode: "Monthly",
+        currency:"KES",
+        leasedate: "",
+        deposit:"",
         
-    },
-    house: {
-        name: ""
-
-    }
-
 },
     widgets: [
         {
@@ -55,8 +53,8 @@ const config = {
             widgetFunc: (props) => <StartBtn {...props} />,
         },
         {
-            widgetName: "startSlow",
-            widgetFunc: (props) => <StartSlow {...props} />,
+            widgetName: "houseno",
+            widgetFunc: (props) => <Houseno {...props} />,
         },
         {
             widgetName: "finalImage",

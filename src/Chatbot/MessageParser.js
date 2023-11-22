@@ -1,11 +1,11 @@
 import React from 'react';
 
 const MessageParser = ({ children, actions }) => {
-    // console.log(children.props.state)
+    console.log(children.props.state)
     const { checker } = children.props.state;
     const parse = (message) => {
         if (checker === "tenant") {
-            children.props.state.tenantname = message;
+            children.props.state.tenant.name = message;
 
             //console.log(children.props.state.tenantname);
 
@@ -16,14 +16,14 @@ const MessageParser = ({ children, actions }) => {
         //
         if (checker ==="company"){
 
-            children.props.state.tenantcompany = message;
+            children.props.state.tenant.company = message;
             actions.afterCompanyName();
         }
 
         //
         if (checker ==="director"){
 
-            children.props.state.tenantdirector = message;
+            children.props.state.tenant.director = message;
 
             actions.afterDirectorName();
         }
@@ -39,6 +39,26 @@ const MessageParser = ({ children, actions }) => {
             actions.afterPremisesLocation();
             //children.props.state.userData.owner = message;
         }
+        //houseno
+        if (checker=== "houseno"){
+            actions.afterHouseNumber();
+
+        }
+        if (checker=== "floor"){
+            actions.afterFloor();
+
+        }
+        //entered housesize
+        if (checker==="square"){
+            actions.afterSize();
+
+        }
+        //entered price
+        if (checker=== "price"){
+            actions.afterHousePrice();
+
+        }
+
         if (checker === "lease") {
             actions.afterLeasePeriod();
             //children.props.state.userData.owner = message;
@@ -50,7 +70,11 @@ const MessageParser = ({ children, actions }) => {
         if (checker === "deposit") {
             actions.afterDeposit();
             //children.props.state.userData.owner = message;
-        }
+        } 
+        if (checker === "annual") {
+            actions.afterAnnualRate();
+            //children.props.state.userData.owner = message;
+        } 
 
 
         if (checker === "preference" && Number(message)) {

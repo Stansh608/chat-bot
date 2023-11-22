@@ -31,18 +31,21 @@ const PremisesLocation = ({owner, actions, state}) => {
     </div>
          
         
-      buttonsToDisplay = Object.keys(premises[owner].location).map((key) => {
-        let premise=premises[owner].location[key].name;
+      buttonsToDisplay = <div> {Object.keys(premises[owner].location).map((ke) => {
+        let premise=premises[owner].location[ke].name;
         return <button 
         className='landlordbtn' 
-        onClick={()=> handleButtonClick(premise,key)}//pass the key to the handleclick fxn
-        key={key}
+        onClick={()=> handleButtonClick(premise,ke)}//pass the key to the handleclick fxn
+        key={ke}
         disabled={buttonsDisabled} //setState
-        >{key}</button>;
-      });
+        >{ke}</button>;
+      })
+      }
+        </div>
     } else{
       buttonsToDisplay=<p className='noResults'>Sorry! The LandLord does not Exist!</p>
     }
+  
 
 
     const handleButtonClick = (premise,key) => {

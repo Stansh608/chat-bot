@@ -38,18 +38,30 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
             ...prev,
             messages: [...prev.messages, client],
         }))
-        const message = createChatBotMessage("Select the House Number",{
-            widget:"houseNumber"
+        const message= createChatBotMessage("Fill in the House Information.", {
+            widget:"houseno",
+            delay:1000
         })
-        updateState(message, "house")
+                                       
+        updateState(message, "houseno")
+    }
+    const afterHouseNumber = () =>{
+        const message = createChatBotMessage("Which Floor?");
+        updateState(message, "floor");
+    }
+    const afterFloor = () => {
+        const message= createChatBotMessage("How many square feet? \n e.g 625")
+        updateState(message, "square")
+
+    }
+    const afterSize = () => {
+        const message= createChatBotMessage("What is the House Lease Price");
+        updateState(message, "price");
+
     }
 
-    const afterHouseNumber = (houseno) => {
-        const client = createClientMessage(`${houseno}`);
-        setState((prev) => ({
-            ...prev,
-            messages: [...prev.messages, client],
-        }))
+    const afterHousePrice = () => {
+        
         const message = createChatBotMessage(`Insert the Preferred Lease Period in Months as a number e.g 12, 15, 20  `,{"Note": "(12 means one year)"});
         updateState(message, "lease")
     }
@@ -93,25 +105,17 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
     }
     //
     const afterDeposit = () => {
-    
+        const message = createChatBotMessage("Enter the annual increase Rate without the % sign. e.g 20")
+        updateState(message,"annual");
+        
+    }
+    const afterAnnualRate = () =>{
         const message = createChatBotMessage("Congratulations! You have reached the end. Your information will be processed and response sent to you after 24 hours.   Regards!");
         updateState(message, "finalState");
-        }
 
-
-    const afterAgeMessage = () => {
-        const message = createChatBotMessage("?", {
-            widget: "startSlow"
-        })
-        updateState(message)
     }
 
-    const finalResult = (name, age, preference, vehicle) => {
-        const message = createChatBotMessage(`Got it, ${name}! Based on your age ${age} and preference for a ${preference} ride, I recommend the '${vehicle}.' Enjoy the thrill!`, {
-            widget: "finalImage"
-        })
-        updateState(message)
-    }
+
 
     const updateState = (message, checker) => {
         setState((prev) => ({
@@ -129,10 +133,14 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
                         initialAction,
                         afterTenantName,
                         afterLandLordName,
-                        afterAgeMessage,
-                        finalResult,
+                        
                         afterPremisesLocation,
+//
                         afterHouseNumber,
+                        afterFloor,
+                        afterSize,
+                        afterAnnualRate,
+                        afterHousePrice,
                         afterLeasePeriod,
                         afterPaymentMode,
                         afterCurrency,
