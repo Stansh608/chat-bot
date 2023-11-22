@@ -23,7 +23,6 @@
 .react-chatbot-kit-chat-container {
     width: 600px;
    
-    
    
     
 }
@@ -52,7 +51,7 @@
 
 
 .react-chatbot-kit-chat-message-container {
-    background-color: white;
+    background-color: wheat;
     
     
 }
@@ -62,11 +61,6 @@
 }
 
 
-
-
-.slow-btn {
-    margin-left: 1rem;
-}
 
 .img-component {
     margin-left: 3rem;
@@ -139,6 +133,12 @@
     place-items: center;
     justify-content: center;
     margin-right: 10px;
+  }
+  .avatar .imga{
+    width: 35px;
+    height: 35px;
+    color: wheat;
+    border-radius: 50%;
   }
   .landlordbtn{
     background-color: #15242a;
