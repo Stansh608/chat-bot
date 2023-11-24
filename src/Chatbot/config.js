@@ -2,12 +2,13 @@ import { createChatBotMessage } from 'react-chatbot-kit';
 import Avatar from './components/Avatar';
 import StartBtn from './components/StartBtn';
 import data from './data';
-import DipslayImage from './components/DipslayImage';
+
 import PremisesLocation from './components/PremisesLocation';
 import HouseNumber from './components/HouseNumber';
 import PaymentMode from './components/PaymentMode';
 import Currency from './components/Currency';
 import Houseno from './components/Houseno';
+import UserInfo from './components/UserInfo';
 
 const config = {
     botName: "ABC Leasing Company AI Assistance",
@@ -20,31 +21,7 @@ const config = {
     state: {
         checker: null,
         data,
-        tenant: {
-            name:"",
-            company:"",
-            director:"",
-        },
-        landlord: {
-            name: "",
-            phone: "",
-            company:"",       
-        },
-        house: {
-            name: "",
-            location:"",
-            size: "",
-            floor:"",
-            room:"",
-            price:"",           
-
-        },
-
-        leaseperiod: "",
-        paymentmode: "Monthly",
-        currency:"KES",
-        leasedate: "",
-        deposit:"",
+        _data:[],
         
 },
     widgets: [
@@ -57,8 +34,8 @@ const config = {
             widgetFunc: (props) => <Houseno {...props} />,
         },
         {
-            widgetName: "finalImage",
-            widgetFunc: (props) => <DipslayImage {...props} />,
+            widgetName: "userInfo",
+            widgetFunc: (props) => <UserInfo {...props} />,
         },
         {
             widgetName: "premisesLocation",

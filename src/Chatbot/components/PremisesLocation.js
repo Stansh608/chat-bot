@@ -25,7 +25,7 @@ const PremisesLocation = ({actions, state}) => {
           return <p style={{marginBottom:"3px"}}> <strong>{key}. </strong>{Object.values(premises.location[key]?.name)}</p>;
           
         })}
-
+ 
     </div>
          
         

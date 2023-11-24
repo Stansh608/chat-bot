@@ -105,14 +105,20 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
     }
     //
     const afterDeposit = () => {
-        const message = createChatBotMessage("Enter the annual increase Rate without the % sign. e.g 20")
-        updateState(message,"annual");
+        const message = createChatBotMessage("Enter the annual increase Rate without the percent sign. e.g 20");
+        updateState(message, "anual");
         
     }
     const afterAnnualRate = () =>{
+        
         const message = createChatBotMessage("Congratulations! You have reached the end. Your information will be processed and response sent to you after 24 hours.   Regards!");
         updateState(message, "finalState");
 
+        
+    }
+    const randomState = () =>{
+        const message = createChatBotMessage("");
+        updateState(message, "fin");
     }
 
 
@@ -139,15 +145,17 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
                         afterHouseNumber,
                         afterFloor,
                         afterSize,
-                        afterAnnualRate,
+                        
                         afterHousePrice,
                         afterLeasePeriod,
                         afterPaymentMode,
                         afterCurrency,
                         afterStartDate,
                         afterDeposit,
+                        afterAnnualRate,
                         afterCompanyName,
                         afterDirectorName,
+                        randomState,
 
 
 

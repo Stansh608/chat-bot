@@ -6,6 +6,7 @@ import MessageParser from './Chatbot/MessageParser';
 import './App.css'
 
 
+
 function App() {
 
   return (
@@ -15,6 +16,7 @@ function App() {
         messageParser={MessageParser}
         actionProvider={ActionProvider}
       />
+      
     </div>
   );
 }
