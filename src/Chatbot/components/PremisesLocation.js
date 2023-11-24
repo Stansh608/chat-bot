@@ -5,11 +5,11 @@ import { useState } from 'react';
 
 
 
-const PremisesLocation = ({owner, actions, state}) => {
+const PremisesLocation = ({actions, state}) => {
 
   const premises=state.data;
 
-    // Logic to display the  buttons based on the owner chosen
+    // Logic to display the  buttons
     let buttonsToDisplay = null;
     
     //display the content
@@ -17,22 +17,20 @@ const PremisesLocation = ({owner, actions, state}) => {
     //use state to make sure the buttons are inactive once clicked
     const [buttonsDisabled, setButtonsDisabled] = useState(false);
 
-    //check if owner exist and give button options
-    if(premises.hasOwnProperty(owner))
-    { 
+    
         contentToDisplay = <div>
             
-        {Object.keys(premises[owner].location).map((key)=>{
+        {Object.keys(premises.location).map((key)=>{
             //console.log(Object.values(premises[owner].location[key]))
-          return <p> <strong>{key}. </strong>{Object.values(premises[owner].location[key]?.name)}</p>;
+          return <p style={{marginBottom:"3px"}}> <strong>{key}. </strong>{Object.values(premises.location[key]?.name)}</p>;
           
         })}
 
     </div>
          
         
-      buttonsToDisplay = <div> {Object.keys(premises[owner].location).map((ke) => {
-        let premise=premises[owner].location[ke].name;
+      buttonsToDisplay = <div> {Object.keys(premises.location).map((ke) => {
+        let premise=premises.location[ke].name;
         return <button 
         className='landlordbtn' 
         onClick={()=> handleButtonClick(premise,ke)}//pass the key to the handleclick fxn
@@ -42,9 +40,7 @@ const PremisesLocation = ({owner, actions, state}) => {
       })
       }
         </div>
-    } else{
-      buttonsToDisplay=<p className='noResults'>Sorry! The LandLord does not Exist!</p>
-    }
+  
   
 
 
@@ -56,20 +52,12 @@ const PremisesLocation = ({owner, actions, state}) => {
       actions.afterPremisesLocation(premise);
       //console.log(premises[owner].location[key]);
       setButtonsDisabled(true); // Disable all buttons
-      
-      if (premises.hasOwnProperty(owner)) {
-        // Check if the owner exists
-       return <HouseNumber premisesData={Object.values(premises[owner].location[key])} selectedKey={key} />;
-      }
-      
-      return <p>Error!</p>;
+    
+      return <HouseNumber premisesData={Object.values(premises.location[key])} selectedKey={key} />;
+     
     };
 
-    //  if (owner === 'maina') {
-    //   buttonsToDisplay = Object.keys(premises.maina.location).map((key) => {
-    //     return <button key={key}>Click Me!</button>;
-    //   });
-    // }
+  
 
   return (
     <div>
