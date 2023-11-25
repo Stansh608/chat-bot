@@ -47,9 +47,20 @@ const PremisesLocation = ({actions, state}) => {
     const handleButtonClick = (premise,key) => {
       // Pass location data and the key of the button clicked
       // to the HouseNumber component
+      let data = JSON.parse(localStorage.getItem('datakey'));
+if (typeof data !== 'object') {
+ data = {};
+}
+const ins = {
+ houseloc: premise
+};
+data = {...data, ...ins};
+localStorage.setItem('datakey', JSON.stringify(data));
+
       
      //pass the selected option to print on the client side.
       actions.afterPremisesLocation(premise);
+      
       //console.log(premises[owner].location[key]);
       setButtonsDisabled(true); // Disable all buttons
     

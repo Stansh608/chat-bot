@@ -2,7 +2,7 @@ import { createChatBotMessage } from 'react-chatbot-kit';
 import Avatar from './components/Avatar';
 import StartBtn from './components/StartBtn';
 import data from './data';
-
+import Rateus from './components/Rateus';
 import PremisesLocation from './components/PremisesLocation';
 import HouseNumber from './components/HouseNumber';
 import PaymentMode from './components/PaymentMode';
@@ -21,7 +21,7 @@ const config = {
     state: {
         checker: null,
         data,
-        _data:[],
+        
         
 },
     widgets: [
@@ -57,6 +57,11 @@ const config = {
         {
             widgetName: "currency",
             widgetFunc: (props) => <Currency {...props} />,
+            
+        },
+        {
+            widgetName: "rateus",
+            widgetFunc: (props) => <Rateus {...props} />,
             
         },
     ]

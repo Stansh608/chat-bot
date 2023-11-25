@@ -42,11 +42,18 @@ const Currency = ({actions}) => {
 
     //handle clicks
     const handleButtonClick = (kvalue) => {
-        // Pass location data and the key of the button clicked
-        // to the HouseNumber component
-        //console.log(data.vacant[key]);
-        //print the options
-        console.log(kvalue);
+        
+        let data = JSON.parse(localStorage.getItem('datakey'));
+        if (typeof data !== 'object') {
+        data = {};
+        }
+        const ins = {
+        currency: kvalue
+        };
+        data = {...data, ...ins};
+        
+        localStorage.setItem('datakey', JSON.stringify(data));
+
         actions.afterCurrency(kvalue);
         setButtonsDisabled(true); // Disable all buttons
                 

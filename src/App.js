@@ -8,14 +8,21 @@ import './App.css'
 
 
 function App() {
-
+  window.onbeforeunload = function() {
+    localStorage.removeItem('datakey');
+   };
+   
   return (
     <div className="App">
+      
+      <>
       <Chatbot
         config={config}
         messageParser={MessageParser}
         actionProvider={ActionProvider}
       />
+      </>
+      
       
     </div>
   );

@@ -34,6 +34,7 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
     }
     const afterPremisesLocation = (key) => {
         const client = createClientMessage(`${key}`);
+        
         setState((prev) => ({
             ...prev,
             messages: [...prev.messages, client],
@@ -86,13 +87,19 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
         });
         updateState(message, "currency");
     }
-    //
+    // //
     const afterCurrency = (currency) => {
         const client = createClientMessage(`${currency}`);
         setState((prev) => ({
             ...prev,
             messages: [...prev.messages, client],
         }))
+        const message = createChatBotMessage("Enter the annual increase Rate without the percent sign. e.g 20");
+        updateState(message, "anual");
+        
+    }
+    const afterAnnualRate = () => {
+        
         const message = createChatBotMessage(`Insert the Lease Commencement Date in (dd.mm.yy) e.g 1.11.2023`);
         updateState(message, "startDate");
     }
@@ -103,21 +110,23 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
     const message = createChatBotMessage("Insert deposit Amount (in Figures) e.g 30000");
     updateState(message, "deposit");
     }
-    //
-    const afterDeposit = () => {
-        const message = createChatBotMessage("Enter the annual increase Rate without the percent sign. e.g 20");
-        updateState(message, "anual");
+   
+    const afterDeposit= () =>{
         
-    }
-    const afterAnnualRate = () =>{
-        
-        const message = createChatBotMessage("Congratulations! You have reached the end. Your information will be processed and response sent to you after 24 hours.   Regards!");
+        const message = createChatBotMessage("Congratulations! You have reached the end. Your information will be processed and response sent to you after 24 hours.", {
+            widget:"rateus"
+        });
         updateState(message, "finalState");
 
         
     }
-    const randomState = () =>{
-        const message = createChatBotMessage("");
+    const randomState = (msg) =>{
+        const client=createClientMessage(`${msg}`);
+        setState((prev) =>({
+            ...prev,
+            messages:[...prev.messages,client],
+        }))
+        const message = createChatBotMessage("Thank you for your feedback. Bye!");
         updateState(message, "fin");
     }
 

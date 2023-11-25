@@ -47,6 +47,17 @@ const [buttonsDisabled, setButtonsDisabled] = useState(false);
             mode="Monthly";
 
         }
+        //read local storage and update value
+        let data = JSON.parse(localStorage.getItem('datakey'));
+        if (typeof data !== 'object') {
+        data = {};
+        }
+        const ins = {
+        paymentmode: mode
+        };
+        data = {...data, ...ins};
+        localStorage.setItem('datakey', JSON.stringify(data));
+        
         actions.afterPaymentMode(mode);
         setButtonsDisabled(true); // Disable all buttons
                 

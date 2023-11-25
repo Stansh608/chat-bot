@@ -7,32 +7,54 @@ const MessageParser = ({ children, actions, setState,  }) => {
     const { checker } = children.props.state;
 
     //The data container
-    const [data, setData]= useState([])
+    const [data, setData]= useState([]);
 
     // Take the variables
     const [tename, setTename] = useState("");
     const [tecompany, setTecompany]= useState("");
     const [tedirector, setTedirector] = useState("");
     const [lacompany, setLacompany]  = useState("");
-    const [houseloc, setHouseloc] = useState("");
+    //const [houseloc, setHouseloc] = useState("");
     const [houseno, setHouseno] = useState("");
     const [floorno, setFloorno] = useState("");
     const [housesize, setHousesize] = useState("");
     const [houseprice, setHouseprice] = useState("");
     const [leaseperiod, setLeaseperiod] = useState("");
-    const [paymentmode, setPaymentmode] = useState("");
-    const [currency, setCurrency] = useState("");
+    
     const [leasedate, setLeasedate] = useState("");
-    const [deposit, setDeposit] = useState("");
-    const [annual, setAnnual] = useState("");
+
+    
+    const [some, setSome] = useState("");
 
 
     useEffect(()=>{
-        localStorage.setItem('datakey', JSON.stringify(data))
-    },[data])
+        let data1 = JSON.parse(localStorage.getItem('datakey'));
+if (typeof data !== 'object') {
+ data1 = {};
+}
+data1 = {...data1, ...data};
+        localStorage.setItem('datakey', JSON.stringify(data1))
+    },)
 
-   
     const parse = (message) => {
+        var vdata={
+            tename:tename,
+            tecompany:tecompany,
+            tedirector:tedirector,
+            lacompany: lacompany,
+           
+            houseno: houseno,
+            floorno: floorno,
+            housesize: housesize,
+            houseprice: houseprice,
+            leaseperiod: leaseperiod,
+           
+            leasedate: leasedate,
+           
+            
+            some:some,
+
+        }
         if (checker === "tenant") {
             setTename(message);
 
@@ -59,7 +81,7 @@ const MessageParser = ({ children, actions, setState,  }) => {
             
         }
         if (checker === "premises") {
-            setHouseloc(message);
+           
             
             
         }
@@ -98,46 +120,47 @@ const MessageParser = ({ children, actions, setState,  }) => {
            
         }
         if (checker === "deposit") {
-            setDeposit(message);
+            let data = JSON.parse(localStorage.getItem('datakey'));
+            if (typeof data !== 'object') {
+            data = {};
+            }
+            const ins = {
+            deposit: message
+            };
+            data = {...data, ...ins};
+            localStorage.setItem('datakey', JSON.stringify(data));
+             
             actions.afterDeposit();
            
         } 
         if (checker === "payment") {
-            setPaymentmode(message);
+            
+            actions.afterPaymentMode();
         } 
         if (checker === "currency") {
-            setCurrency(message);
             
-           
+            actions.afterCurrency();
         } 
         if (checker === "anual") {
-            setAnnual(message);
-            console.log(message)
+            let data = JSON.parse(localStorage.getItem('datakey'));
+            if (typeof data !== 'object') {
+            data = {};
+            }
+            const ins = {
+            annual: message
+            };
+            data = {...data, ...ins};
+            localStorage.setItem('datakey', JSON.stringify(data));
+             
+          
             actions.afterAnnualRate();
         }
         if (checker=== "finalState"){
-            
+            setSome(message);
             actions.randomState()
         }
 
-        var vdata={
-            tename:tename,
-            tecompany:tecompany,
-            tedirector:tedirector,
-            lacompany: lacompany,
-            houseloc: houseloc,
-            houseno: houseno,
-            floorno: floorno,
-            housesize: housesize,
-            houseprice: houseprice,
-            leaseperiod: leaseperiod,
-            paymentmode: paymentmode,
-            currency: currency,
-            leasedate: leasedate,
-            deposit: deposit,
-            annual: annual,
-
-        }
+     
         setData(vdata)
        
 
@@ -152,6 +175,7 @@ const MessageParser = ({ children, actions, setState,  }) => {
                     actions,
                 });
             })}
+            
           
           <br/>   <br/>
       <UserInfo />
