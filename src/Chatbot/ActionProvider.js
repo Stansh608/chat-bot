@@ -51,7 +51,7 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
         updateState(message, "floor");
     }
     const afterFloor = () => {
-        const message= createChatBotMessage("How many square feet? \n e.g 625")
+        const message= createChatBotMessage("How many Square Feet? \n e.g 625")
         updateState(message, "square")
 
     }
@@ -94,7 +94,7 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
             ...prev,
             messages: [...prev.messages, client],
         }))
-        const message = createChatBotMessage("Enter the annual increase Rate without the percent sign. e.g 20");
+        const message = createChatBotMessage("Enter the Annual Increase Rate without the percent sign. e.g 20");
         updateState(message, "anual");
         
     }
@@ -107,7 +107,7 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
     //
     const afterStartDate = () => {
     
-    const message = createChatBotMessage("Insert deposit Amount (in Figures) e.g 30000");
+    const message = createChatBotMessage("Insert Deposit Amount (in Figures) e.g 30000");
     updateState(message, "deposit");
     }
    
@@ -127,7 +127,12 @@ const ActionProvider = ({ createChatBotMessage,setState, children }) => {
             messages:[...prev.messages,client],
         }))
         const message = createChatBotMessage("Thank you for your feedback. Bye!");
-        updateState(message, "fin");
+        setState((prev) => ({
+            ...prev,
+            messages: [...prev.messages, message],
+           
+        }))
+        
     }
 
 

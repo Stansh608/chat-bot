@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import image from './rateus.png';
+
+
 const Rateus = ({actions}) => {
     
     const btn={

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
-import UserInfo from './components/UserInfo';
-
+import PrintInfo from './components/PrintInfo';
 const MessageParser = ({ children, actions, setState,  }) => {
     // console.log(children.props.state)
     const { checker } = children.props.state;
@@ -158,6 +157,8 @@ data1 = {...data1, ...data};
         if (checker=== "finalState"){
             setSome(message);
             actions.randomState()
+            
+            
         }
 
      
@@ -178,7 +179,8 @@ data1 = {...data1, ...data};
             
           
           <br/>   <br/>
-      <UserInfo />
+          {checker === "finalState" ? <PrintInfo /> : null}
+     
         </div>
     );
 };

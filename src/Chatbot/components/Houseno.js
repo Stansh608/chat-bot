@@ -4,7 +4,7 @@ const Houseno = () => {
   return (
     <div>
         <br/>
-        <div className='premisesContent'> Enter the house door no. e.g 12 </div>
+        <div className='premisesContent'> Enter the House Door No. e.g 12 </div>
     </div>
   )
 }

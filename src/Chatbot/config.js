@@ -8,7 +8,6 @@ import HouseNumber from './components/HouseNumber';
 import PaymentMode from './components/PaymentMode';
 import Currency from './components/Currency';
 import Houseno from './components/Houseno';
-import UserInfo from './components/UserInfo';
 
 const config = {
     botName: "ABC Leasing Company AI Assistance",
@@ -33,10 +32,7 @@ const config = {
             widgetName: "houseno",
             widgetFunc: (props) => <Houseno {...props} />,
         },
-        {
-            widgetName: "userInfo",
-            widgetFunc: (props) => <UserInfo {...props} />,
-        },
+        
         {
             widgetName: "premisesLocation",
             widgetFunc: (props) => <PremisesLocation {...props} />,
