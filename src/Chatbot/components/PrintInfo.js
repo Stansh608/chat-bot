@@ -74,7 +74,7 @@ const PrintInfo = () => {
         <br/><br/>
         </div>
         <p className='copyrights'>
-        Developed by DevStanshTechSolutions @2023 | All Rights Reserved.
+        Developed by Stan Tech Solutions @2023 | All Rights Reserved.
         </p> 
        </div>
        
